@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Minus, MessageCircle, Check, ShieldCheck, Sparkles, PackageCheck, Gift } from 'lucide-react';
+import { Plus, Minus, MessageCircle, Check, ShieldCheck, Sparkles, PackageCheck, Award } from 'lucide-react';
 
 interface ProductItem {
   id: string;
@@ -20,71 +20,34 @@ const PRODUCTS: ProductItem[] = [
   {
     id: 'botella-500ml',
     name: 'Blend Selección Arbequina & Picual',
-    category: 'Edición Vidrio Oscuro',
+    category: 'Presentación Insignia',
     volume: 'Botella 500 ml',
     description:
-      'Nuestra presentación insignia en botella de vidrio oscuro protector con pico vertedor dosificador irrellenable. Ideal para llevar directamente a la mesa.',
-    badge: '🏆 Premiado 2026',
+      'Botella de vidrio oscuro protector con pico dosificador irrellenable. El varietal premiado como Mejor Aceite de Oliva Virgen Extra del País en Caminos y Sabores 2026.',
+    badge: '🏆 Mejor AOVE 2026',
     image: '/images/producto_premium.jpg',
-    notes: ['Acidez < 0.20%', 'Sin TACC', 'Valle de Pedernal'],
-  },
-  {
-    id: 'envase-metalico',
-    name: 'Lata Metálica Gastronómica',
-    category: 'Kitchen & Restaurant Format',
-    volume: 'Lata Cilíndrica',
-    description:
-      'Envase metálico cilíndrico con protección absoluta contra rayos UV y calor. Diseñado ergonómicamente para trabajo continuo en cocina profesional y alta gastronomía.',
-    badge: 'Gourmet Kitchen',
-    image: '/images/product_envase_metalico.jpg',
-    notes: ['Light Protection', 'Uso Profesional', 'Valle de Pedernal'],
-  },
-  {
-    id: 'bidon-3l',
-    name: 'Reserva Familiar Gastronómica',
-    category: 'Formato Cocina & Restaurant',
-    volume: 'Bidón 3 Litros',
-    description:
-      'Envase metálico rectangular de alta resistencia con manija y vertedor hermético. Diseñado para quienes cocinan a diario con aceite virgen extra de máxima calidad.',
-    badge: 'Alta Cocina',
-    image: '/images/product_3_litros.jpg',
-    notes: ['Rendimiento óptimo', 'Cosecha 2026', 'Prensado en frío'],
-  },
-  {
-    id: 'duo-regalo',
-    name: 'Estuche Dúo Degustación',
-    category: 'Presentación de Autor',
-    volume: '2x Botellas 500 ml',
-    description:
-      'Cofre de madera noble con interior en pana negra resguardando dos botellas de nuestro blend premiado. El regalo gourmet definitivo.',
-    badge: 'Cofre de Lujo',
-    image: '/images/product_set_duo.jpg',
-    notes: ['Cofre de autor', 'Madera & Pana', 'Folleto de cata'],
+    notes: ['Acidez < 0.20%', 'Sin TACC', 'Valle de Pedernal', 'Sello IG San Juan'],
   },
   {
     id: 'caja-6u',
-    name: 'Caja Colección Cava Saleme',
-    category: 'Envío Directo a Todo el País',
-    volume: '6x Botellas 500 ml',
+    name: 'Caja Colección x 6 Botellas',
+    category: 'Formato Envíos a Todo el País',
+    volume: '6x Botellas 500 ml (3 Litros)',
     description:
-      'Caja cerrada de 6 unidades para abastecimiento familiar o amantes del AOVE. Embalaje reforzado con protección antigolpes para envíos a domicilio.',
-    badge: 'Más Conveniente',
+      'Caja cerrada de 6 unidades con embalaje reforzado y celdas de protección antichoque. Formato ideal para abastecimiento familiar o amantes del virgen extra con envío directo a domicilio.',
+    badge: 'Envíos Nacionales',
     image: '/images/product_caja_envios.jpg',
-    notes: ['Embalaje seguro', 'Envíos nacionales', 'Precio especial'],
+    notes: ['Protección antigolpes', 'Despacho directo de finca', 'Consumo familiar'],
   },
 ];
 
 export default function Products() {
   const [quantities, setQuantities] = useState<{ [key: string]: number }>({
     'botella-500ml': 2,
-    'envase-metalico': 0,
-    'bidon-3l': 0,
-    'duo-regalo': 1,
     'caja-6u': 0,
   });
   const [customerName, setCustomerName] = useState('');
   const [city, setCity] = useState('');
-  const [giftNote, setGiftNote] = useState('');
 
   const updateQuantity = (id: string, delta: number) => {
     setQuantities((prev) => {
@@ -110,13 +73,10 @@ export default function Products() {
       text += `\nNombre: ${customerName.trim()}`;
     }
     if (city.trim()) {
-      text += `\nCiudad / Localidad: ${city.trim()}`;
-    }
-    if (giftNote.trim()) {
-      text += `\nDedicatoria de regalo: "${giftNote.trim()}"`;
+      text += `\nCiudad / Provincia: ${city.trim()}`;
     }
 
-    text += `\n\n¿Me confirmarían disponibilidad y opciones de entrega? Muchas gracias!`;
+    text += `\n\n¿Me indican los medios de pago y el costo de envío? Muchas gracias!`;
     return encodeURIComponent(text);
   };
 
@@ -125,68 +85,69 @@ export default function Products() {
   return (
     <section id="productos" className="py-24 sm:py-32 bg-[#0A0A0A] border-t border-[#C8A96E]/20 relative overflow-hidden">
       {/* Ambient background glow */}
-      <div className="absolute top-10 right-10 w-96 h-96 bg-[#C8A96E]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-[#4A582E]/15 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#C8A96E]/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
-        {/* Header */}
+        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
           <span className="text-[11px] sm:text-xs uppercase tracking-[0.28em] text-[#C8A96E] font-semibold block mb-3">
-            Colección Finca Pedernal • Venta Directa
+            Venta Directa desde Finca • San Juan
           </span>
           <h2 className="font-['Playfair_Display',serif] text-3xl sm:text-5xl md:text-6xl text-[#F5F0EB] font-normal tracking-tight mb-5 leading-tight">
-            Nuestros Productos & Formatos
+            Nuestro Aceite Virgen Extra
           </h2>
-          <p className="text-sm sm:text-base text-[#A39B8B] font-light leading-relaxed">
-            Elegí tus presentaciones preferidas. Coordinamos envíos directos desde la almazara en San Juan hacia todo
-            el país vía WhatsApp.
+          <p className="text-sm sm:text-base text-[#DDD6CA] font-light leading-relaxed">
+            Elegí la cantidad que necesitás para tu mesa o pedí la caja cerrada para envíos directos a todo el país.
+            Coordinamos todo de forma personalizada a través de WhatsApp.
           </p>
         </div>
 
-        {/* 5 Product Cards Grid with Real Photos */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 mb-20">
+        {/* 2 Authentic Product Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16 sm:mb-20">
           {PRODUCTS.map((prod) => (
             <div
               key={prod.id}
-              className="rounded-3xl overflow-hidden bg-[#141414] border border-[#C8A96E]/25 hover:border-[#C8A96E] transition-all duration-300 flex flex-col justify-between group shadow-xl"
+              className="rounded-3xl overflow-hidden bg-[#12150D] border border-[#C8A96E]/30 hover:border-[#C8A96E] transition-all duration-300 flex flex-col justify-between group shadow-2xl"
             >
               {/* Product Photo */}
-              <div className="relative aspect-square w-full overflow-hidden bg-[#0D0D0D]">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#0A0C08]">
                 <Image
                   src={prod.image}
                   alt={prod.name}
                   fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 20vw"
+                  sizes="(max-width: 768px) 100vw, 500px"
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#141414] via-transparent to-black/20" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#12150D] via-transparent to-black/20" />
 
                 {/* Badge */}
-                <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#0A0A0A]/85 backdrop-blur-md border border-[#C8A96E]/50 text-[#D4B87A] text-[10px] font-bold uppercase tracking-wider">
+                <div className="absolute top-4 left-4 px-3.5 py-1 rounded-full bg-[#0A0A0A]/90 backdrop-blur-md border border-[#C8A96E]/60 text-[#D4B87A] text-[11px] font-bold uppercase tracking-wider">
                   {prod.badge}
                 </div>
 
-                <div className="absolute bottom-3 right-3 px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-sm text-[11px] text-white/90 font-mono">
+                <div className="absolute bottom-4 right-4 px-3 py-1 rounded-full bg-black/80 backdrop-blur-sm text-xs text-white/95 font-mono border border-white/10">
                   {prod.volume}
                 </div>
               </div>
 
               {/* Info & Counter */}
-              <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div className="p-7 flex-1 flex flex-col justify-between space-y-5">
                 <div>
-                  <span className="text-[10px] uppercase tracking-wider text-[#C8A96E] font-semibold block mb-1">
+                  <span className="text-[10px] uppercase tracking-widest text-[#C8A96E] font-semibold block mb-1">
                     {prod.category}
                   </span>
-                  <h3 className="font-['Playfair_Display',serif] text-xl text-[#F5F0EB] font-normal mb-2 leading-snug">
+                  <h3 className="font-['Playfair_Display',serif] text-2xl text-[#F5F0EB] font-normal mb-2 leading-snug">
                     {prod.name}
                   </h3>
-                  <p className="text-xs text-[#A39B8B] font-light leading-relaxed mb-3">{prod.description}</p>
+                  <p className="text-xs sm:text-sm text-[#DDD6CA] font-light leading-relaxed mb-4">{prod.description}</p>
 
                   {/* Notes pills */}
-                  <div className="flex flex-wrap gap-1.5 mb-4">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {prod.notes.map((note, nIdx) => (
                       <span
                         key={nIdx}
-                        className="px-2.5 py-0.5 rounded-full bg-[#1E1E1E] text-[10px] text-[#D4B87A] border border-white/5"
+                        className="px-3 py-1 rounded-full bg-[#1C2214] text-[11px] text-[#D4B87A] border border-[#5A6E35]/30 font-medium"
                       >
                         {note}
                       </span>
@@ -196,25 +157,25 @@ export default function Products() {
 
                 {/* Quantity Selector inside card */}
                 <div className="pt-4 border-t border-white/10 flex items-center justify-between">
-                  <span className="text-xs text-[#A39B8B] font-medium">Cantidad:</span>
+                  <span className="text-xs text-[#A39B8B] font-medium">Cantidad a encargar:</span>
                   <div className="flex items-center gap-3">
                     <button
                       onClick={() => updateQuantity(prod.id, -1)}
                       disabled={(quantities[prod.id] || 0) === 0}
-                      className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-[#F5F0EB] hover:border-[#C8A96E] hover:text-[#C8A96E] disabled:opacity-30 disabled:pointer-events-none transition-colors"
+                      className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-[#F5F0EB] hover:border-[#C8A96E] hover:text-[#C8A96E] disabled:opacity-30 disabled:pointer-events-none transition-colors"
                       aria-label={`Restar ${prod.name}`}
                     >
-                      <Minus className="w-3.5 h-3.5" />
+                      <Minus className="w-4 h-4" />
                     </button>
-                    <span className="w-6 text-center font-mono font-bold text-sm text-[#D4B87A]">
+                    <span className="w-8 text-center font-mono font-bold text-base text-[#D4B87A]">
                       {quantities[prod.id] || 0}
                     </span>
                     <button
                       onClick={() => updateQuantity(prod.id, 1)}
-                      className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-[#F5F0EB] hover:border-[#C8A96E] hover:text-[#C8A96E] transition-colors"
+                      className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-[#F5F0EB] hover:border-[#C8A96E] hover:text-[#C8A96E] transition-colors"
                       aria-label={`Sumar ${prod.name}`}
                     >
-                      <Plus className="w-3.5 h-3.5" />
+                      <Plus className="w-4 h-4" />
                     </button>
                   </div>
                 </div>
@@ -223,8 +184,8 @@ export default function Products() {
           ))}
         </div>
 
-        {/* INTERACTIVE "ARMÁ TU PEDIDO" ORDER SUMMARY STRIP (Inspired by Entre Raíces!) */}
-        <div className="rounded-3xl bg-[#141414] border border-[#C8A96E]/30 p-6 sm:p-10 shadow-2xl">
+        {/* ORDER SUMMARY STRIP */}
+        <div className="rounded-3xl bg-[#12150D] border border-[#C8A96E]/40 p-6 sm:p-10 shadow-2xl max-w-4xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Left: Cart details & Inputs */}
             <div className="lg:col-span-7 space-y-5">
@@ -248,14 +209,14 @@ export default function Products() {
               {/* Selected items list */}
               {totalItems === 0 ? (
                 <p className="text-xs text-[#A39B8B] italic py-2">
-                  No has seleccionado ningún producto aún. Usá los botones (+) arriba para agregar botellas o estuches.
+                  No has seleccionado ningún producto aún. Usá los botones (+) arriba para agregar botellas o cajas.
                 </p>
               ) : (
                 <div className="space-y-2">
                   {PRODUCTS.filter((p) => (quantities[p.id] || 0) > 0).map((p) => (
                     <div
                       key={p.id}
-                      className="flex items-center justify-between text-xs py-1.5 border-b border-white/5"
+                      className="flex items-center justify-between text-xs sm:text-sm py-2 border-b border-white/5"
                     >
                       <span className="text-[#F5F0EB] font-light">
                         {p.name} <span className="text-[#A39B8B]">({p.volume})</span>
@@ -266,7 +227,7 @@ export default function Products() {
                 </div>
               )}
 
-              {/* Optional customer fields */}
+              {/* Customer fields */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                 <div>
                   <label className="text-[11px] uppercase tracking-wider text-[#A39B8B] block mb-1">
@@ -277,7 +238,7 @@ export default function Products() {
                     value={customerName}
                     onChange={(e) => setCustomerName(e.target.value)}
                     placeholder="Ej. Juan Pérez"
-                    className="w-full bg-[#0E0E0E] border border-white/15 rounded-xl px-3.5 py-2.5 text-xs text-[#F5F0EB] placeholder-[#A39B8B]/40 focus:outline-none focus:border-[#C8A96E]"
+                    className="w-full bg-[#0A0C08] border border-white/15 rounded-xl px-3.5 py-2.5 text-xs text-[#F5F0EB] placeholder-[#A39B8B]/40 focus:outline-none focus:border-[#C8A96E]"
                   />
                 </div>
                 <div>
@@ -289,29 +250,24 @@ export default function Products() {
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
                     placeholder="Ej. San Juan / CABA"
-                    className="w-full bg-[#0E0E0E] border border-white/15 rounded-xl px-3.5 py-2.5 text-xs text-[#F5F0EB] placeholder-[#A39B8B]/40 focus:outline-none focus:border-[#C8A96E]"
+                    className="w-full bg-[#0A0C08] border border-white/15 rounded-xl px-3.5 py-2.5 text-xs text-[#F5F0EB] placeholder-[#A39B8B]/40 focus:outline-none focus:border-[#C8A96E]"
                   />
                 </div>
               </div>
             </div>
 
-            {/* Right: Dedication & Direct WhatsApp CTA */}
-            <div className="lg:col-span-5 bg-[#0E0E0E] p-6 rounded-2xl border border-white/10 flex flex-col justify-between space-y-4">
-              <div>
-                <label className="text-[11px] uppercase tracking-wider text-[#C8A96E] font-semibold flex items-center gap-1.5 mb-2">
-                  <Gift className="w-3.5 h-3.5" />
-                  Dedicatoria de regalo (Opcional)
-                </label>
-                <textarea
-                  value={giftNote}
-                  onChange={(e) => setGiftNote(e.target.value)}
-                  placeholder="Si es un obsequio, escribí un mensaje para adjuntar en la tarjeta..."
-                  rows={2}
-                  className="w-full bg-[#141414] border border-white/15 rounded-xl p-3 text-xs text-[#F5F0EB] placeholder-[#A39B8B]/40 focus:outline-none focus:border-[#C8A96E] resize-none"
-                />
+            {/* Right: Direct WhatsApp CTA */}
+            <div className="lg:col-span-5 bg-[#0A0C08] p-6 rounded-2xl border border-white/10 flex flex-col justify-between space-y-4">
+              <div className="space-y-2">
+                <span className="text-[11px] uppercase tracking-wider text-[#C8A96E] font-semibold block">
+                  Atención Directa
+                </span>
+                <p className="text-xs text-[#DDD6CA] font-light leading-relaxed">
+                  Tu pedido se envía directamente al WhatsApp oficial de Familia Saleme en San Juan para coordinar pago seguro y envío a tu domicilio.
+                </p>
               </div>
 
-              <div className="space-y-2.5">
+              <div className="space-y-2.5 pt-2">
                 <a
                   href={totalItems > 0 ? whatsappHref : undefined}
                   target="_blank"
@@ -326,7 +282,7 @@ export default function Products() {
                   <span>Enviar Pedido por WhatsApp</span>
                 </a>
                 <p className="text-[11px] text-center text-[#A39B8B] font-light">
-                  Se abrirá WhatsApp con el detalle listo para coordinar pago y entrega directa.
+                  Se abrirá WhatsApp con el detalle listo para enviar.
                 </p>
               </div>
             </div>
