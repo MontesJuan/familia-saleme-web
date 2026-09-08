@@ -23,12 +23,12 @@ export default function Footer() {
           {/* Col 1: Brand & Logo */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3.5">
-              <div className="relative w-12 h-12 rounded-full overflow-hidden border border-[#C8A96E] p-0.5 bg-black flex-shrink-0">
+              <div className="relative w-12 h-14 sm:w-14 sm:h-16 flex-shrink-0">
                 <Image
-                  src="/images/logo_original.jpg"
+                  src="/images/logo_emblem_trans.png"
                   alt="Familia Saleme Logo Oficial"
                   fill
-                  className="object-cover rounded-full"
+                  className="object-contain filter drop-shadow-[0_2px_8px_rgba(200,169,110,0.3)]"
                 />
               </div>
               <div>

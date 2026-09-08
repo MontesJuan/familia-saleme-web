@@ -2,13 +2,12 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { Mountain, Droplets, Sun, Compass, HeartHandshake, History } from 'lucide-react';
+import { Mountain, Droplets, Sun, HeartHandshake } from 'lucide-react';
 
 export default function Origin() {
   return (
     <section id="origen" className="py-24 sm:py-32 bg-[#0A0A0A] relative overflow-hidden border-t border-[#C8A96E]/15">
-      {/* Background radial atmosphere */}
+      {/* Background radial glow */}
       <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-[#6B7B3A]/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10">
@@ -42,7 +41,7 @@ export default function Origin() {
               excepcional de polifenoles y aromas vivaces.
             </p>
 
-            {/* Quote */}
+            {/* Quote Card */}
             <blockquote className="p-6 rounded-2xl bg-[#141414] border-l-4 border-[#C8A96E] text-[#F5F0EB] shadow-lg font-['Playfair_Display',serif] text-lg sm:text-xl italic">
               “El aceite de oliva no se fabrica: se acompaña. Cada gota refleja el sol sanjuanino, el deshielo andino y
               la paciencia de dos generaciones en el campo.”
@@ -54,47 +53,49 @@ export default function Origin() {
             </p>
           </div>
 
-          {/* Right Column: Real Photos Collage */}
+          {/* Right Column: 3 Curated Photos from IMAGENES/OK */}
           <div className="lg:col-span-6 space-y-4">
-            <div className="relative aspect-[16/10] rounded-3xl overflow-hidden shadow-2xl border border-[#C8A96E]/20 group">
+            {/* Top Large Card: Olivares en Finca Pedernal */}
+            <div className="relative aspect-[16/10] rounded-3xl overflow-hidden shadow-2xl border border-[#C8A96E]/25 group bg-[#121212]">
               <Image
-                src="/images/olive_tree_origin.jpg"
-                alt="Olivares centenarios de Familia Saleme en Pedernal"
+                src="/images/origin_olivares_pedernal.jpg"
+                alt="Olivares en Finca Pedernal • San Juan, Argentina"
                 fill
                 sizes="(max-width: 1024px) 100vw, 600px"
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-              <div className="absolute bottom-4 left-4 text-xs font-medium text-white/90">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/10" />
+              <div className="absolute bottom-4 left-4 text-xs font-medium text-white/95 tracking-wide">
                 Olivares en Finca Pedernal • San Juan, Argentina
               </div>
             </div>
 
+            {/* Bottom 2 Cards Grid: 1.350 msnm & Cosecha Manual */}
             <div className="grid grid-cols-2 gap-4">
-              <div className="relative aspect-[16/10] rounded-2xl overflow-hidden border border-white/10 group">
+              <div className="relative aspect-[16/10] rounded-2xl overflow-hidden border border-white/10 group bg-[#121212]">
                 <Image
-                  src="/images/pedernal_valley.jpg"
-                  alt="El Valle de Pedernal y la cordillera"
+                  src="/images/origin_precordillera.jpg"
+                  alt="1.350 msnm • Precordillera"
                   fill
                   sizes="300px"
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors" />
-                <div className="absolute bottom-2.5 left-3 text-[11px] font-medium text-white/90">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
+                <div className="absolute bottom-2.5 left-3 text-[11px] font-medium text-white/95">
                   1.350 msnm • Precordillera
                 </div>
               </div>
 
-              <div className="relative aspect-[16/10] rounded-2xl overflow-hidden border border-white/10 group">
+              <div className="relative aspect-[16/10] rounded-2xl overflow-hidden border border-white/10 group bg-[#121212]">
                 <Image
-                  src="/images/harvest_field.jpg"
-                  alt="Cosecha manual de aceitunas seleccionadas"
+                  src="/images/harvest_manual.jpg"
+                  alt="Cosecha Manual Seleccionada"
                   fill
                   sizes="300px"
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors" />
-                <div className="absolute bottom-2.5 left-3 text-[11px] font-medium text-white/90">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
+                <div className="absolute bottom-2.5 left-3 text-[11px] font-medium text-white/95">
                   Cosecha Manual Seleccionada
                 </div>
               </div>
@@ -102,7 +103,7 @@ export default function Origin() {
           </div>
         </div>
 
-        {/* 4 Terroir & Quality Pillars */}
+        {/* 4 Pillars */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           <div className="p-6 rounded-2xl bg-[#141414] border border-[#C8A96E]/20 hover:border-[#C8A96E] transition-all duration-300 group">
             <div className="w-11 h-11 rounded-xl bg-[#1D1D1D] flex items-center justify-center text-[#C8A96E] mb-4 group-hover:scale-110 transition-transform">

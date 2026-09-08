@@ -22,7 +22,7 @@ const STEPS: ProcessStep[] = [
     description:
       'Nuestros olivares crecen en un microclima de gran altitud, regados con agua pura de deshielo andino y acariciados por más de 300 días de sol al año.',
     detail: 'Suelos pedregosos calcáreos que obligan a las raíces a profundizar.',
-    image: '/images/pedernal_valley.jpg',
+    image: '/images/origin_precordillera.jpg',
   },
   {
     step: '02',
@@ -31,7 +31,7 @@ const STEPS: ProcessStep[] = [
     description:
       'Recolectamos a mano en el punto justo de maduración cuando las aceitunas Arbequina y Picual viran de verde a morado, maximizando la carga de antioxidantes.',
     detail: 'Evitamos que el fruto toque el suelo para prevenir magulladuras.',
-    image: '/images/harvest_field.jpg',
+    image: '/images/harvest_manual.jpg',
   },
   {
     step: '03',
@@ -49,7 +49,7 @@ const STEPS: ProcessStep[] = [
     description:
       'El aceite descansa en tanques de acero inoxidable antes de ser embotellado en vidrio oscuro con protección UV y vertedor de precisión para la mesa.',
     detail: 'Control riguroso lote por lote con certificación Sin TACC.',
-    image: '/images/bottle_branch_close.jpg',
+    image: '/images/producto_premium.jpg',
   },
 ];
 

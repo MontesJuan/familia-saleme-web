@@ -25,7 +25,7 @@ const PRODUCTS: ProductItem[] = [
     description:
       'Nuestra presentación insignia en botella de vidrio oscuro protector con pico vertedor dosificador irrellenable. Ideal para llevar directamente a la mesa.',
     badge: '🏆 Premiado 2026',
-    image: '/images/bottle_multipremiado.jpg',
+    image: '/images/producto_premium.jpg',
     notes: ['Acidez < 0.20%', 'Sin TACC', 'Valle de Pedernal'],
   },
   {

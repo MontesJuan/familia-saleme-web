@@ -20,7 +20,7 @@ const PAIRINGS: PairingCard[] = [
     subtitle: 'El Ritual de Inicio',
     description:
       'Un hilo de Familia Saleme crudo sobre pan rústico recién horneado con escamas de sal marina, o acompañando quesos semiduros y brie.',
-    image: '/images/culinary_bread_table.jpg',
+    image: '/images/pairings_pan_queso.jpg',
     recom: 'Queso Gouda añejo, Parmesano Reggiano, Focaccia con romero.',
     chefNote: 'El aceite potencia las notas lácticas y la corteza crocante.',
   },
