@@ -44,9 +44,9 @@ export const metadata: Metadata = {
     locale: "es_AR",
     images: [
       {
-        url: "/images/hero_bottle_olivegrove.jpg",
-        width: 1080,
-        height: 1350,
+        url: "/images/hero_olivares_bg.jpg",
+        width: 1376,
+        height: 768,
         alt: "Familia Saleme — Aceite de Oliva Virgen Extra",
       },
     ],

@@ -29,12 +29,23 @@ const PRODUCTS: ProductItem[] = [
     notes: ['Acidez < 0.20%', 'Sin TACC', 'Valle de Pedernal'],
   },
   {
+    id: 'envase-metalico',
+    name: 'Lata Metálica Gastronómica',
+    category: 'Kitchen & Restaurant Format',
+    volume: 'Lata Cilíndrica',
+    description:
+      'Envase metálico cilíndrico con protección absoluta contra rayos UV y calor. Diseñado ergonómicamente para trabajo continuo en cocina profesional y alta gastronomía.',
+    badge: 'Gourmet Kitchen',
+    image: '/images/product_envase_metalico.jpg',
+    notes: ['Light Protection', 'Uso Profesional', 'Valle de Pedernal'],
+  },
+  {
     id: 'bidon-3l',
     name: 'Reserva Familiar Gastronómica',
     category: 'Formato Cocina & Restaurant',
     volume: 'Bidón 3 Litros',
     description:
-      'Envase metálico de alta resistencia y protección contra la luz. Diseñado para quienes cocinan a diario con aceite virgen extra de máxima calidad.',
+      'Envase metálico rectangular de alta resistencia con manija y vertedor hermético. Diseñado para quienes cocinan a diario con aceite virgen extra de máxima calidad.',
     badge: 'Alta Cocina',
     image: '/images/product_3_litros.jpg',
     notes: ['Rendimiento óptimo', 'Cosecha 2026', 'Prensado en frío'],
@@ -45,10 +56,10 @@ const PRODUCTS: ProductItem[] = [
     category: 'Presentación de Autor',
     volume: '2x Botellas 500 ml',
     description:
-      'Estuche rígido de presentación especial con dos botellas de 500ml de nuestro blend multipremiado. El regalo gourmet por excelencia.',
-    badge: 'Ideal Regalo',
+      'Cofre de madera noble con interior en pana negra resguardando dos botellas de nuestro blend premiado. El regalo gourmet definitivo.',
+    badge: 'Cofre de Lujo',
     image: '/images/product_set_duo.jpg',
-    notes: ['Estuche de autor', 'Cinta dorada', 'Folleto de cata'],
+    notes: ['Cofre de autor', 'Madera & Pana', 'Folleto de cata'],
   },
   {
     id: 'caja-6u',
@@ -66,6 +77,7 @@ const PRODUCTS: ProductItem[] = [
 export default function Products() {
   const [quantities, setQuantities] = useState<{ [key: string]: number }>({
     'botella-500ml': 2,
+    'envase-metalico': 0,
     'bidon-3l': 0,
     'duo-regalo': 1,
     'caja-6u': 0,
@@ -130,8 +142,8 @@ export default function Products() {
           </p>
         </div>
 
-        {/* 4 Product Cards Grid with Real Photos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        {/* 5 Product Cards Grid with Real Photos */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 mb-20">
           {PRODUCTS.map((prod) => (
             <div
               key={prod.id}
@@ -143,7 +155,7 @@ export default function Products() {
                   src={prod.image}
                   alt={prod.name}
                   fill
-                  sizes="(max-width: 768px) 100vw, 300px"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 20vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#141414] via-transparent to-black/20" />
