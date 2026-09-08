@@ -22,10 +22,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 items-start mb-16">
           {/* Col 1: Brand & Logo */}
           <div className="lg:col-span-5 space-y-4">
-            <div className="flex items-center gap-3.5">
-              <div className="relative w-12 h-14 sm:w-14 sm:h-16 flex-shrink-0">
+            <div className="flex items-center gap-4">
+              <div className="relative w-16 h-18 sm:w-20 sm:h-20 flex-shrink-0">
                 <Image
-                  src="/images/logo_emblem_trans.png"
+                  src="/images/logo_familia_saleme_complete_trans.png"
                   alt="Familia Saleme Logo Oficial"
                   fill
                   className="object-contain filter drop-shadow-[0_2px_8px_rgba(200,169,110,0.3)]"

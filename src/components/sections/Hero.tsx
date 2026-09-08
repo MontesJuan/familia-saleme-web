@@ -32,19 +32,19 @@ export default function Hero() {
 
       {/* Hero Content Container */}
       <div className="max-w-7xl mx-auto px-5 sm:px-8 relative z-10 my-auto text-center">
-        {/* Big Golden Brand Droplet Emblem */}
+        {/* Big Complete Brand Emblem & Wordmark */}
         <motion.div
           initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="relative w-16 h-20 sm:w-20 sm:h-24 mx-auto mb-6 flex-shrink-0"
+          className="relative w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-4 flex-shrink-0"
         >
           <div className="absolute inset-0 bg-[#C8A96E]/20 rounded-full blur-2xl -z-10" />
           <Image
-            src="/images/logo_emblem_trans.png"
-            alt="Emblema Oficial Familia Saleme"
+            src="/images/logo_familia_saleme_complete_trans.png"
+            alt="Familia Saleme"
             fill
-            sizes="96px"
+            sizes="128px"
             className="object-contain filter drop-shadow-[0_4px_16px_rgba(200,169,110,0.45)]"
             priority
           />
@@ -61,16 +61,22 @@ export default function Hero() {
           <span className="w-1.5 h-1.5 rounded-full bg-[#C8A96E] animate-ping" />
         </motion.div>
 
-        {/* Headline */}
+        {/* Headline - 4 lines exactly as requested */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.25 }}
-          className="font-['Playfair_Display',serif] text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-[#F5F0EB] leading-[1.08] tracking-tight mb-6 max-w-5xl mx-auto"
+          className="font-['Playfair_Display',serif] text-4xl sm:text-6xl md:text-7xl lg:text-[5.25rem] font-normal text-[#F5F0EB] leading-[1.12] tracking-tight mb-8 max-w-5xl mx-auto drop-shadow-lg"
         >
-          Aceite de Oliva Virgen Extra <br />
-          <span className="italic font-normal bg-gradient-to-r from-[#FFF8EC] via-[#D4B87A] to-[#C8A96E] bg-clip-text text-fill-transparent drop-shadow-sm">
-            Oro Líquido de la Precordillera
+          <span className="block">Aceite de Oliva</span>
+          <span className="block text-3xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-light text-[#EAE4D9] mt-1">
+            Extra Virgen
+          </span>
+          <span className="italic font-normal bg-gradient-to-r from-[#FFF8EC] via-[#D4B87A] to-[#C8A96E] bg-clip-text text-fill-transparent drop-shadow-sm block mt-2">
+            Oro Líquido
+          </span>
+          <span className="block text-2xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-light text-[#DDD6CA] mt-1">
+            de la Precordillera
           </span>
         </motion.h1>
 

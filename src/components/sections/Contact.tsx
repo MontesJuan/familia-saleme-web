@@ -51,7 +51,7 @@ export default function Contact() {
               <div className="flex items-center gap-4">
                 <div className="relative w-14 h-16 sm:w-16 sm:h-20 flex-shrink-0">
                   <Image
-                    src="/images/logo_emblem_trans.png"
+                    src="/images/logo_familia_saleme_complete_trans.png"
                     alt="Familia Saleme Logo Oficial"
                     fill
                     className="object-contain filter drop-shadow-[0_2px_10px_rgba(200,169,110,0.3)]"
