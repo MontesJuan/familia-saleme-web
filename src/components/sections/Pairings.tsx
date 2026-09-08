@@ -38,7 +38,7 @@ const PAIRINGS: PairingCard[] = [
     subtitle: 'El Aliado de los Chefs',
     description:
       'Presente en las cartas de los restaurantes más exigentes de San Juan y Cuyo, elevando carnes a punto, carpaccios y emulsiones gourmet.',
-    image: '/images/gastronomy_experience.jpg',
+    image: '/images/pairings_alta_cocina.jpg',
     recom: 'Carpaccio de lomo, Mollejas crocantes al limón, Pesca andina.',
     chefNote: 'Su amargor equilibrado corta la untuosidad de carnes nobles.',
   },

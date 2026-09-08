@@ -70,7 +70,7 @@ export default function Hero() {
         >
           <span className="block">Aceite de Oliva</span>
           <span className="block text-3xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-light text-[#EAE4D9] mt-1">
-            Extra Virgen
+            Virgen Extra
           </span>
           <span className="italic font-normal bg-gradient-to-r from-[#FFF8EC] via-[#D4B87A] to-[#C8A96E] bg-clip-text text-fill-transparent drop-shadow-sm block mt-2">
             Oro Líquido

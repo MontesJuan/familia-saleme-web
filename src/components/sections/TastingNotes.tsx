@@ -109,7 +109,7 @@ export default function TastingNotes() {
           <div className="lg:col-span-4 order-1 lg:order-2 flex flex-col items-center">
             <div className="relative w-full max-w-sm aspect-[4/5] rounded-3xl overflow-hidden border-2 border-[#C8A96E]/40 shadow-2xl bg-[#0A0A0A] group">
               <Image
-                src="/images/bottle_pour_liquid_gold.jpg"
+                src="/images/tasting_prensado_frio.jpg"
                 alt="Vertido de Aceite de Oliva Virgen Extra dorado Familia Saleme"
                 fill
                 sizes="(max-width: 1024px) 100vw, 400px"

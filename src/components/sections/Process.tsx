@@ -40,7 +40,7 @@ const STEPS: ProcessStep[] = [
     description:
       'Nuestra propia planta en la finca permite moler las aceitunas de inmediato a temperaturas inferiores a 24°C, asegurando una acidez virgen extra menor a 0.20%.',
     detail: 'Extracción exclusivamente por procedimientos mecánicos centrífugos.',
-    image: '/images/bottle_pour_liquid_gold.jpg',
+    image: '/images/process_prensado_frio.jpg',
   },
   {
     step: '04',

@@ -80,7 +80,7 @@ export default function Awards() {
 
               <div className="relative aspect-[16/10] rounded-2xl overflow-hidden border border-white/10 group">
                 <Image
-                  src="/images/bottle_multipremiado.jpg"
+                  src="/images/product_white_picual_arbequina.jpg"
                   alt="Botella multipremiada Familia Saleme"
                   fill
                   sizes="300px"
