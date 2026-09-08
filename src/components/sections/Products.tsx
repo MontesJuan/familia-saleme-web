@@ -36,7 +36,7 @@ const PRODUCTS: ProductItem[] = [
     description:
       'Envase metálico de alta resistencia y protección contra la luz. Diseñado para quienes cocinan a diario con aceite virgen extra de máxima calidad.',
     badge: 'Alta Cocina',
-    image: '/images/bottle_square_03.jpg',
+    image: '/images/product_3_litros.jpg',
     notes: ['Rendimiento óptimo', 'Cosecha 2026', 'Prensado en frío'],
   },
   {
@@ -47,7 +47,7 @@ const PRODUCTS: ProductItem[] = [
     description:
       'Estuche rígido de presentación especial con dos botellas de 500ml de nuestro blend multipremiado. El regalo gourmet por excelencia.',
     badge: 'Ideal Regalo',
-    image: '/images/awards_showcase.jpg',
+    image: '/images/product_set_duo.jpg',
     notes: ['Estuche de autor', 'Cinta dorada', 'Folleto de cata'],
   },
   {
@@ -58,7 +58,7 @@ const PRODUCTS: ProductItem[] = [
     description:
       'Caja cerrada de 6 unidades para abastecimiento familiar o amantes del AOVE. Embalaje reforzado con protección antigolpes para envíos a domicilio.',
     badge: 'Más Conveniente',
-    image: '/images/hero_bottle_olivegrove.jpg',
+    image: '/images/product_caja_envios.jpg',
     notes: ['Embalaje seguro', 'Envíos nacionales', 'Precio especial'],
   },
 ];
