@@ -1,146 +1,165 @@
 'use client';
 
 import React from 'react';
-import { Mail, MapPin, createLucideIcon } from 'lucide-react';
-
-const Instagram = createLucideIcon('Instagram', [
-  ['rect', { width: '20', height: '20', x: '2', y: '2', rx: '5', ry: '5', key: 'rect' }],
-  ['path', { d: 'M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z', key: 'path' }],
-  ['line', { x1: '17.5', x2: '17.51', y1: '6.5', y2: '6.5', key: 'line' }],
-]);
-
-interface FooterLink {
-  name: string;
-  href: string;
-}
-
-const FOOTER_LINKS: FooterLink[] = [
-  { name: 'Origen', href: '#origen' },
-  { name: 'Producto', href: '#producto' },
-  { name: 'Proceso', href: '#proceso' },
-  { name: 'Contacto', href: '#contacto' },
-];
+import Image from 'next/image';
+import { MessageCircle, MapPin, Heart, ArrowUp } from 'lucide-react';
+import InstagramIcon from '@/components/ui/InstagramIcon';
 
 export default function Footer() {
-  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    if (href === '#' || href === '#top') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
-
-    const targetId = href.replace('#', '');
-    const element = document.getElementById(targetId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  return (
-    <footer className="bg-[#0A0A0A] text-[#A39B8B] relative overflow-hidden">
-      {/* Top border with delicate gold gradient */}
-      <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-[#C8A96E]/40 to-transparent" />
+  const whatsappUrl =
+    'https://wa.me/5492644999862?text=Hola%20Familia%20Saleme!%20Quisiera%20hacer%20un%20pedido%20de%20Aceite%20de%20Oliva%20Virgen%20Extra.';
 
-      {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 md:py-24">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16">
-          {/* Column 1: Brand (5 cols on md) */}
-          <div className="md:col-span-5 flex flex-col items-start space-y-4">
-            <a
-              href="#top"
-              onClick={(e) => handleScrollTo(e, '#top')}
-              className="inline-block group"
-            >
-              <span className="font-['Playfair_Display',serif] tracking-[0.3em] text-base md:text-lg text-[#C8A96E] font-medium uppercase select-none transition-opacity duration-300 group-hover:opacity-85">
-                FAMILIA SALEME
-              </span>
-            </a>
-            <p className="font-['Inter',sans-serif] text-xs md:text-sm leading-relaxed text-[#A39B8B] max-w-sm font-light">
-              Aceite de Oliva Virgen Extra de alta gama, cosechado con dedicación en los valles de San Juan, Argentina. Pureza, origen y maestría en cada gota.
+  return (
+    <footer className="bg-[#070707] text-[#A39B8B] border-t border-[#C8A96E]/20 relative overflow-hidden">
+      {/* Top subtle golden gradient line */}
+      <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-[#C8A96E]/60 to-transparent" />
+
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 py-16 sm:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 items-start mb-16">
+          {/* Col 1: Brand & Logo */}
+          <div className="lg:col-span-5 space-y-4">
+            <div className="flex items-center gap-3.5">
+              <div className="relative w-12 h-12 rounded-full overflow-hidden border border-[#C8A96E] p-0.5 bg-black flex-shrink-0">
+                <Image
+                  src="/images/logo_original.jpg"
+                  alt="Familia Saleme Logo Oficial"
+                  fill
+                  className="object-cover rounded-full"
+                />
+              </div>
+              <div>
+                <span className="font-['Playfair_Display',serif] tracking-[0.25em] text-lg text-[#F5F0EB] block">
+                  FAMILIA SALEME
+                </span>
+                <span className="text-[10px] tracking-[0.3em] uppercase text-[#C8A96E] font-medium block -mt-0.5">
+                  San Juan • Argentina
+                </span>
+              </div>
+            </div>
+
+            <p className="text-xs sm:text-sm text-[#A39B8B] font-light leading-relaxed max-w-sm">
+              Aceite de Oliva Virgen Extra de alta montaña. Galardonado como el Mejor AOVE de Argentina en Caminos y
+              Sabores 2026. Finca y almazara propia en el Valle de Pedernal.
             </p>
-            <div className="pt-2">
-              <span className="inline-block text-[11px] tracking-[0.25em] uppercase text-[#C8A96E]/80 border border-[#C8A96E]/20 px-3 py-1 rounded-full font-light">
-                Olivícola Pedernal S.A.
-              </span>
+
+            <div className="pt-2 flex items-center gap-3">
+              <a
+                href="https://www.instagram.com/familia_saleme"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-[#141414] border border-white/10 flex items-center justify-center text-[#F5F0EB] hover:text-[#C8A96E] hover:border-[#C8A96E] transition-all"
+                aria-label="Instagram Familia Saleme"
+              >
+                <InstagramIcon className="w-4 h-4" />
+              </a>
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-[#141414] border border-white/10 flex items-center justify-center text-[#25D366] hover:border-[#25D366] transition-all"
+                aria-label="WhatsApp Familia Saleme"
+              >
+                <MessageCircle className="w-4 h-4" />
+              </a>
             </div>
           </div>
 
-          {/* Column 2: Navigation (3 cols on md) */}
-          <div className="md:col-span-3 flex flex-col space-y-4">
-            <h3 className="font-['Playfair_Display',serif] text-xs uppercase tracking-[0.25em] text-[#C8A96E] font-medium">
+          {/* Col 2: Navigation Links */}
+          <div className="lg:col-span-3 space-y-3">
+            <span className="text-xs uppercase tracking-[0.22em] text-[#C8A96E] font-semibold block mb-2 font-mono">
               Navegación
-            </h3>
-            <ul className="space-y-3 font-['Inter',sans-serif] text-xs uppercase tracking-[0.2em]">
-              {FOOTER_LINKS.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => handleScrollTo(e, link.href)}
-                    className="text-[#A39B8B] hover:text-[#C8A96E] transition-colors duration-300 inline-block py-0.5"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
+            </span>
+            <ul className="space-y-2 text-xs">
+              <li>
+                <a href="#inicio" className="hover:text-[#F5F0EB] transition-colors">
+                  Inicio
+                </a>
+              </li>
+              <li>
+                <a href="#origen" className="hover:text-[#F5F0EB] transition-colors">
+                  Nuestro Origen
+                </a>
+              </li>
+              <li>
+                <a href="#premios" className="hover:text-[#F5F0EB] transition-colors">
+                  Premios 2026
+                </a>
+              </li>
+              <li>
+                <a href="#perfil" className="hover:text-[#F5F0EB] transition-colors">
+                  Perfil Sensorial
+                </a>
+              </li>
+              <li>
+                <a href="#maridajes" className="hover:text-[#F5F0EB] transition-colors">
+                  Maridajes de Autor
+                </a>
+              </li>
+              <li>
+                <a href="#proceso" className="hover:text-[#F5F0EB] transition-colors">
+                  Proceso Productivo
+                </a>
+              </li>
+              <li>
+                <a href="#productos" className="hover:text-[#F5F0EB] transition-colors">
+                  Nuestros Productos
+                </a>
+              </li>
+              <li>
+                <a href="#galeria" className="hover:text-[#F5F0EB] transition-colors">
+                  Galería
+                </a>
+              </li>
+              <li>
+                <a href="#contacto" className="hover:text-[#F5F0EB] transition-colors">
+                  Contacto
+                </a>
+              </li>
             </ul>
           </div>
 
-          {/* Column 3: Contact & Social (4 cols on md) */}
-          <div className="md:col-span-4 flex flex-col space-y-4">
-            <h3 className="font-['Playfair_Display',serif] text-xs uppercase tracking-[0.25em] text-[#C8A96E] font-medium">
-              Contacto
-            </h3>
-            <div className="space-y-3 font-['Inter',sans-serif] text-xs text-[#A39B8B]">
-              <div className="flex items-start space-x-3">
-                <MapPin size={15} className="text-[#C8A96E] mt-0.5 shrink-0" strokeWidth={1.5} />
-                <span className="leading-relaxed">
-                  San Juan, Argentina
-                </span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Mail size={15} className="text-[#C8A96E] shrink-0" strokeWidth={1.5} />
-                <a
-                  href="mailto:info@familiasaleme.com"
-                  className="hover:text-[#C8A96E] transition-colors duration-300 tracking-wide"
-                >
-                  info@familiasaleme.com
-                </a>
-              </div>
+          {/* Col 3: Origin & Legal Information */}
+          <div className="lg:col-span-4 space-y-4">
+            <span className="text-xs uppercase tracking-[0.22em] text-[#C8A96E] font-semibold block mb-2 font-mono">
+              Procedencia & Calidad
+            </span>
+            <div className="space-y-2 text-xs text-[#A39B8B] font-light">
+              <p>
+                <strong className="text-[#F5F0EB] font-medium">Finca & Almazara:</strong> Valle de Pedernal,
+                Departamento Sarmiento, San Juan, Argentina.
+              </p>
+              <p>
+                <strong className="text-[#F5F0EB] font-medium">Razón Social:</strong> Olivícola Pedernal S.A.
+              </p>
+              <p>
+                <strong className="text-[#F5F0EB] font-medium">Certificaciones:</strong> Indicación Geográfica (IG) San
+                Juan • Libre de Gluten Sin TACC • ArgOliva.
+              </p>
             </div>
 
-            {/* Social links row */}
-            <div className="pt-4">
-              <span className="block font-['Playfair_Display',serif] text-[10px] uppercase tracking-[0.25em] text-[#C8A96E]/70 mb-3 font-medium">
-                Síguenos
-              </span>
-              <div className="flex items-center space-x-3">
-                <a
-                  href="https://instagram.com/familia_saleme"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram Familia Saleme"
-                  className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-[#C8A96E]/20 bg-[#C8A96E]/5 hover:bg-[#C8A96E]/15 hover:border-[#C8A96E]/50 text-[#A39B8B] hover:text-[#C8A96E] transition-all duration-300 group"
-                >
-                  <Instagram
-                    size={14}
-                    strokeWidth={1.5}
-                    className="text-[#C8A96E] transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <span className="font-['Inter',sans-serif] text-[11px] tracking-[0.2em] uppercase font-light">
-                    @familia_saleme
-                  </span>
-                </a>
-              </div>
+            <div className="pt-2">
+              <button
+                onClick={scrollToTop}
+                className="inline-flex items-center gap-2 text-xs text-[#D4B87A] hover:text-[#FFF8EC] transition-colors cursor-pointer"
+              >
+                <span>Volver al inicio</span>
+                <ArrowUp className="w-3.5 h-3.5" />
+              </button>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Bottom Sub-footer */}
-      <div className="w-full border-t border-[#C8A96E]/10 py-8 px-6">
-        <p className="font-['Inter',sans-serif] text-[11px] tracking-[0.2em] text-[#A39B8B]/70 uppercase text-center font-light">
-          © 2026 Familia Saleme — Olivícola Pedernal S.A.
-        </p>
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#A39B8B]/70 font-light">
+          <p>© 2026 Familia Saleme — Olivícola Pedernal S.A. Todos los derechos reservados.</p>
+          <p className="flex items-center gap-1.5">
+            <span>Hecho con devoción en San Juan, Argentina</span>
+          </p>
+        </div>
       </div>
     </footer>
   );

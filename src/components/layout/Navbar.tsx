@@ -1,8 +1,9 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, MessageCircle, ArrowRight } from 'lucide-react';
 
 interface NavItem {
   name: string;
@@ -11,8 +12,12 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   { name: 'Origen', href: '#origen' },
-  { name: 'Producto', href: '#producto' },
+  { name: 'Premios', href: '#premios' },
+  { name: 'Perfil Sensorial', href: '#perfil' },
+  { name: 'Maridajes', href: '#maridajes' },
   { name: 'Proceso', href: '#proceso' },
+  { name: 'Productos', href: '#productos' },
+  { name: 'Galería', href: '#galeria' },
   { name: 'Contacto', href: '#contacto' },
 ];
 
@@ -30,7 +35,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Prevent background scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -58,128 +62,148 @@ export default function Navbar() {
     }
   };
 
+  const whatsappUrl =
+    'https://wa.me/5492644999862?text=Hola%20Familia%20Saleme!%20Visité%20su%20web%20y%20quisiera%20hacer%20un%20pedido%20de%20Aceite%20de%20Oliva%20Virgen%20Extra.';
+
   return (
     <>
-      <motion.header
-        initial={{ opacity: 0, y: -16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'backdrop-blur-xl bg-[#0A0A0A]/80 border-b border-[#C8A96E]/10 py-4 shadow-lg shadow-black/40'
-            : 'bg-transparent border-b border-transparent py-6 md:py-8'
+            ? 'backdrop-blur-md bg-[#0A0A0A]/90 border-b border-[#C8A96E]/20 py-3.5 shadow-xl shadow-black/50'
+            : 'bg-gradient-to-b from-[#0A0A0A]/90 to-transparent py-5'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
-          {/* Brand logo / Name */}
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between">
+          {/* Official Logo and Brand Identity */}
           <a
             href="#top"
             onClick={(e) => handleScrollTo(e, '#top')}
-            className="group inline-flex flex-col items-start transition-opacity duration-300 hover:opacity-85"
+            className="flex items-center gap-3.5 group cursor-pointer"
           >
-            <span className="font-['Playfair_Display',serif] tracking-[0.3em] text-sm text-[#C8A96E] font-medium uppercase select-none">
-              FAMILIA SALEME
-            </span>
+            <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden border border-[#C8A96E]/60 p-0.5 bg-black/60 shadow-md group-hover:border-[#D4B87A] transition-colors flex-shrink-0">
+              <Image
+                src="/images/logo_original.jpg"
+                alt="Familia Saleme — Logo Oficial"
+                fill
+                sizes="48px"
+                className="object-cover rounded-full group-hover:scale-105 transition-transform duration-500"
+                priority
+              />
+            </div>
+            <div className="flex flex-col">
+              <span className="font-['Playfair_Display',serif] text-base sm:text-lg tracking-[0.22em] text-[#F5F0EB] font-medium uppercase group-hover:text-[#C8A96E] transition-colors">
+                FAMILIA SALEME
+              </span>
+              <span className="text-[9px] sm:text-[10px] tracking-[0.28em] uppercase text-[#C8A96E] font-medium -mt-0.5">
+                Aceite de Oliva • San Juan
+              </span>
+            </div>
           </a>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center space-x-10">
+          {/* Desktop Navigation */}
+          <nav className="hidden xl:flex items-center space-x-7">
             {NAV_ITEMS.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
                 onClick={(e) => handleScrollTo(e, item.href)}
-                className="font-['Inter',sans-serif] text-xs uppercase tracking-[0.25em] text-[#A39B8B] hover:text-[#C8A96E] transition-colors duration-300 relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-[#C8A96E] hover:after:w-full after:transition-all after:duration-300"
+                className="text-xs uppercase tracking-[0.18em] text-[#A39B8B] hover:text-[#C8A96E] transition-colors duration-200 relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-[#C8A96E] hover:after:w-full after:transition-all after:duration-300"
               >
                 {item.name}
               </a>
             ))}
           </nav>
 
-          {/* Mobile Hamburger Button */}
+          {/* Action CTAs */}
+          <div className="hidden sm:flex items-center gap-3.5">
+            <a
+              href="#productos"
+              onClick={(e) => handleScrollTo(e, '#productos')}
+              className="text-xs uppercase tracking-[0.16em] text-[#D4B87A] hover:text-[#FFF8EC] font-medium px-3.5 py-2 transition-colors"
+            >
+              Catálogo
+            </a>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full bg-[#C8A96E] hover:bg-[#D4B87A] text-[#0A0A0A] text-xs font-semibold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-95"
+            >
+              <MessageCircle className="w-4 h-4 text-[#0A0A0A]" />
+              <span>Pedir por WhatsApp</span>
+            </a>
+          </div>
+
+          {/* Mobile Menu Trigger */}
           <button
-            type="button"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label={isMobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
-            className="md:hidden text-[#C8A96E] p-2 -mr-2 transition-colors duration-300 hover:text-[#C8A96E]/80 focus:outline-none"
+            className="xl:hidden p-2 text-[#F5F0EB] hover:text-[#C8A96E] transition-colors focus:outline-none"
+            aria-label="Abrir menú"
           >
-            {isMobileMenuOpen ? (
-              <X size={22} strokeWidth={1.5} />
-            ) : (
-              <Menu size={22} strokeWidth={1.5} />
-            )}
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
-      </motion.header>
+      </header>
 
-      {/* Mobile Menu Overlay & Panel */}
+      {/* Mobile Menu Drawer */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <>
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 md:hidden"
-            />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-40 bg-[#0A0A0A]/95 backdrop-blur-2xl xl:hidden flex flex-col justify-between pt-24 pb-12 px-8"
+          >
+            <div className="flex flex-col items-center text-center space-y-6">
+              <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-[#C8A96E] mb-2 p-0.5">
+                <Image
+                  src="/images/logo_original.jpg"
+                  alt="Familia Saleme Logo"
+                  fill
+                  className="object-cover rounded-full"
+                />
+              </div>
+              <span className="font-['Playfair_Display',serif] tracking-[0.3em] text-lg text-[#C8A96E] uppercase">
+                FAMILIA SALEME
+              </span>
+              <div className="w-12 h-[1px] bg-[#C8A96E]/40" />
 
-            {/* Slide-in Drawer */}
-            <motion.aside
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 30, stiffness: 280 }}
-              className="fixed top-0 right-0 bottom-0 w-[82%] max-w-sm bg-[#0A0A0A]/95 backdrop-blur-2xl border-l border-[#C8A96E]/20 z-50 p-8 flex flex-col justify-between md:hidden shadow-2xl shadow-black"
-            >
-              <div>
-                {/* Drawer Header */}
-                <div className="flex items-center justify-between pb-8 border-b border-[#C8A96E]/10">
-                  <span className="font-['Playfair_Display',serif] tracking-[0.25em] text-xs text-[#C8A96E] font-medium uppercase">
-                    FAMILIA SALEME
-                  </span>
-                  <button
-                    type="button"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    aria-label="Cerrar menú"
-                    className="text-[#C8A96E] p-1.5 hover:text-[#C8A96E]/80 transition-colors focus:outline-none"
+              <div className="flex flex-col space-y-5 pt-2">
+                {NAV_ITEMS.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    onClick={(e) => handleScrollTo(e, item.href)}
+                    className="font-['Playfair_Display',serif] text-xl text-[#F5F0EB] hover:text-[#C8A96E] transition-colors tracking-wide"
                   >
-                    <X size={20} strokeWidth={1.5} />
-                  </button>
-                </div>
-
-                {/* Navigation Links */}
-                <nav className="mt-12 flex flex-col space-y-6">
-                  {NAV_ITEMS.map((item, index) => (
-                    <motion.a
-                      key={item.name}
-                      href={item.href}
-                      onClick={(e) => handleScrollTo(e, item.href)}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.05 * (index + 1), duration: 0.4 }}
-                      className="font-['Inter',sans-serif] text-sm uppercase tracking-[0.25em] text-[#A39B8B] hover:text-[#C8A96E] transition-colors duration-300 flex items-center justify-between group py-2"
-                    >
-                      <span>{item.name}</span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-transparent group-hover:bg-[#C8A96E] transition-colors duration-300" />
-                    </motion.a>
-                  ))}
-                </nav>
+                    {item.name}
+                  </a>
+                ))}
               </div>
+            </div>
 
-              {/* Drawer Footer */}
-              <div className="pt-8 border-t border-[#C8A96E]/10">
-                <p className="text-[11px] uppercase tracking-[0.2em] text-[#C8A96E]/70 mb-1">
-                  Aceite de Oliva Virgen Extra
-                </p>
-                <p className="text-[10px] tracking-widest text-[#A39B8B]/60 uppercase">
-                  San Juan, Argentina
-                </p>
-              </div>
-            </motion.aside>
-          </>
+            <div className="flex flex-col gap-3 pt-6 border-t border-white/10">
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center gap-2.5 py-3.5 rounded-full bg-[#C8A96E] text-[#0A0A0A] text-xs font-bold uppercase tracking-wider shadow-lg"
+              >
+                <MessageCircle className="w-4 h-4" />
+                <span>Pedir por WhatsApp</span>
+              </a>
+              <a
+                href="https://www.instagram.com/familia_saleme"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-center text-xs tracking-widest text-[#A39B8B] hover:text-[#C8A96E] py-2 uppercase"
+              >
+                Instagram: @familia_saleme
+              </a>
+            </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </>
