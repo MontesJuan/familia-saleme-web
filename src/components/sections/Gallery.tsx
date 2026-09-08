@@ -42,13 +42,13 @@ const GALLERY_PHOTOS: GalleryItem[] = [
     id: '5',
     tag: 'El Ritual del Pan',
     caption: 'Pan de masa madre, quesos de campo y Familia Saleme en su estado más puro.',
-    image: '/images/culinary_bread_table.jpg',
+    image: '/images/pairings_pan_queso.jpg',
   },
   {
     id: '6',
     tag: 'Pastas de Autor',
     caption: 'Terminación con un hilo de AOVE sobre platos de La Vene San Juan.',
-    image: '/images/culinary_pairing_pasta.jpg',
+    image: '/images/pairings_pastas.jpg',
   },
   {
     id: '7',

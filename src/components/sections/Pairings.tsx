@@ -29,7 +29,7 @@ const PAIRINGS: PairingCard[] = [
     subtitle: 'Terminación en Mesa',
     description:
       'Utilizado por prestigiosos restaurantes sanjuaninos como La Vene y Casa Manuel como toque final en caliente, donde el calor libera sus polifenoles.',
-    image: '/images/culinary_pairing_pasta.jpg',
+    image: '/images/pairings_pastas.jpg',
     recom: 'Ravioles de calabaza y nuez, Spaghetti alla chitarra, Risotto de hongos.',
     chefNote: 'Añadir 5 segundos antes de servir sin sobrecalentar.',
   },
@@ -47,7 +47,7 @@ const PAIRINGS: PairingCard[] = [
     subtitle: 'Frescura de Huerta',
     description:
       'El compañero perfecto para vegetales de estación, ensalada tabule de Oriente Medio, tomates reliquia y emulsiones vivaces.',
-    image: '/images/quality_ingredients.jpg',
+    image: '/images/pairings_ensaladas.jpg',
     recom: 'Ensalada Tabule fresca, Tomates reliquia con albahaca, Vegetales asados.',
     chefNote: 'Resalta el dulzor natural y aporta un brillo esmeralda único.',
   },
